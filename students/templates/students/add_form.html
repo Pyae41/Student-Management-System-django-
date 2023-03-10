@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="card p-3 mb-3">
+        {% if success %}
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>You successfully Added! </strong> <a href="{% url 'home' %}" class="alert-link">Go to home</a>.
+            </div>
+        {% endif %}
+        <div class="card-title">
+            <h3>Add Student</h3>
+        </div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-success">Add</button>
+                <a href="{% url 'home' %}" class="btn btn-danger">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
